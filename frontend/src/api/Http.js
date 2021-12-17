@@ -4,7 +4,7 @@ import store from '../store'
 
 class Http {
 
-  constructor (options) {
+  constructor(options) {
     this.httpClient = axios.create(options)
   }
 
