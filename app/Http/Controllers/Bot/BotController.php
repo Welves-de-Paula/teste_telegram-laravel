@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Bot;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Bot;
 
 class BotController extends Controller
 {
@@ -14,6 +15,8 @@ class BotController extends Controller
      */
     public function index()
     {
+        $bots = Bot::get();
+        return compact('bots');
         //
     }
 
@@ -25,8 +28,9 @@ class BotController extends Controller
      */
     public function store(Request $request)
     {
-        return 'store';
-        //
+        $bot   = new Bot();
+        $bot->fill($request->toArray());
+        $bot->save();
     }
 
     /**
