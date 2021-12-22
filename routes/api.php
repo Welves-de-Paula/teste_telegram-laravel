@@ -24,3 +24,7 @@ Route::group(['namespace' => 'Bot', 'prefix' => 'bot'], function () {
 
     Route::resource('bot', 'BotController');
 });
+Route::group(['namespace' => 'Message', 'prefix' => 'message'], function () {
+
+    Route::resource('message', 'MessageController');
+});
