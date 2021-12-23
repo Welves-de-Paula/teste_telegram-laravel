@@ -23,6 +23,13 @@
                     cache-items
                   />
                 </v-col>
+                <v-col>
+                  <v-select
+                    :items="bot_methods"
+                    v-model="bot_method"
+                    label="bot_method"
+                  />
+                </v-col>
 
                 <v-col>
                   <v-btn
@@ -83,7 +90,10 @@ export default {
       bot: {},
       bots: [],
       bot_method: "getMe",
-      bot_methods: [{ value: "getMe", text: "getMe" }],
+      bot_methods: [
+        { value: "getMe", text: "getMe" },
+        { value: "getUpdates", text: "getUpdates" },
+      ],
       form: {
         bot_token: null,
       },
