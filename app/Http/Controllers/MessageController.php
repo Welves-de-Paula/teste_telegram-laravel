@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Bot;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Bot;
+use App\Events\TelegramNotification;
+use App\Models\User;
 
-class BotController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class BotController extends Controller
      */
     public function index()
     {
-        $bots = Bot::get();
-        return compact('bots');
         //
     }
 
@@ -28,9 +26,11 @@ class BotController extends Controller
      */
     public function store(Request $request)
     {
-        $bot   = new Bot();
-        $bot->fill($request->toArray());
-        $bot->save();
+
+        $user =  User::findOrFail(1);
+
+        TelegramNotification::dispatch($user, $request->message);
+        //
     }
 
     /**

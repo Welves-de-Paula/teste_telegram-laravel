@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Message;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Bot;
 
-class MessageController
+class BotController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +15,8 @@ class MessageController
      */
     public function index()
     {
-
+        $bots = Bot::get();
+        return compact('bots');
         //
     }
 
@@ -27,6 +28,9 @@ class MessageController
      */
     public function store(Request $request)
     {
+        $bot   = new Bot();
+        $bot->fill($request->toArray());
+        $bot->save();
     }
 
     /**

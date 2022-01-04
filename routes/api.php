@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['namespace' => 'Bot', 'prefix' => 'bot'], function () {
+Route::group(['prefix' => 'bot'], function () {
 
     Route::resource('bot', 'BotController');
 });
-Route::group(['namespace' => 'Message', 'prefix' => 'message'], function () {
+Route::group(['prefix' => 'message'], function () {
 
     Route::resource('message', 'MessageController');
 });

@@ -42,9 +42,10 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <VueEditor
-                    v-model="form.text"
-                    :editorToolbar="customToolbar"
+                  <v-textarea
+                    outlined
+                    label="Mensagem"
+                    v-model="form.message"
                   />
                 </v-col>
               </v-row>
@@ -96,6 +97,7 @@ export default {
       ],
       form: {
         bot_token: null,
+        message: "hello world",
       },
       customToolbar: [
         ["bold", "italic", "underline", "strike"], // toggled buttons
@@ -126,7 +128,7 @@ export default {
 
   methods: {
     sendMessage() {
-      this.$http.store("message/message");
+      this.$http.store("message/message", this.form);
     },
     addBot() {
       this.$refs.BotForm.open();
