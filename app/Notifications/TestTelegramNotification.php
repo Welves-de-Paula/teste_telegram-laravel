@@ -5,8 +5,12 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use NotificationChannels\Telegram\TelegramFile;
+use NotificationChannels\Telegram\TelegramPoll;
 use Illuminate\Notifications\Messages\MailMessage;
+use NotificationChannels\Telegram\TelegramContact;
 use NotificationChannels\Telegram\TelegramMessage;
+use NotificationChannels\Telegram\TelegramLocation;
 
 class TestTelegramNotification extends Notification
 {
@@ -71,9 +75,39 @@ class TestTelegramNotification extends Notification
 
         return TelegramMessage::create()
             // ->token()
-
             ->to(-704549771)
-
             ->content($this->message);
+
+
+        // return TelegramPoll::create()
+        //     ->to(-704549771)
+        //     ->question("Funcionou ?")
+        //     ->choices(['Sim', 'Não', 'Deu ruim']);
+
+
+        // return TelegramContact::create()
+        //     ->to(-704549771)
+        //     ->firstName('Welves')
+        //     ->lastName('(Programador)')
+        //     ->phoneNumber('5527992660994');
+
+
+
+        // return TelegramFile::create()
+        //     ->to(-704549771)
+        //     ->content('Link ERP Apex (https://erp.apexsoftware.com.br/login)')
+        //     ->photo('https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_1MB.jpg');
+
+
+        // return TelegramFile::create()
+        //     ->to(-704549771)
+        //     ->content('Did you know we can set a custom filename too?')
+        //     ->document('https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf', 'sample.pdf');
+
+
+        // return TelegramLocation::create()
+        //     ->to(-704549771)
+        //     ->latitude('40.6892494')
+        //     ->longitude('-74.0466891');
     }
 }
