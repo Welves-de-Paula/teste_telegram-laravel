@@ -73,7 +73,7 @@ class TestTelegramNotification extends Notification
 
 
         return TelegramMessage::create()
-            ->token($this->data['bot_token'])
+            ->token($this->data['bot']['token'])
             ->to(-704549771)
             ->content($this->data['message']);
 

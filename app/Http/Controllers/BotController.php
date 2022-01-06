@@ -41,7 +41,10 @@ class BotController extends Controller
      */
     public function show($id)
     {
-        //
+
+
+        $bot = Bot::findOrFail($id);
+        return compact('bot');
     }
 
     /**
@@ -53,6 +56,9 @@ class BotController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $bot = Bot::findOrFail($id);
+        $bot->fill($request->toArray());
+        $bot->save();
         //
     }
 

@@ -17,6 +17,10 @@ class CreateBotsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('token');
+            $table->string('domain');
+            $table->string('description')->nullable();
+
+            $table->softDeletes();
 
             $table->timestamps();
         });

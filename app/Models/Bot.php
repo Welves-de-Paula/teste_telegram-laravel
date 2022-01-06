@@ -12,5 +12,7 @@ class Bot extends Model
     protected $fillable = [
         'name',
         'token',
+        'domain',
+        'description',
     ];
 }

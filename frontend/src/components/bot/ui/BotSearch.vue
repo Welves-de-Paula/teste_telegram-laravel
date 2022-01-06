@@ -34,7 +34,7 @@
               <span>Selecionar {{ label }}</span>
             </div>
 
-            <v-btn @click="openCategoriesForm()" color="success" icon
+            <v-btn @click="openBotForm()" color="success" icon
               ><v-icon>mdi-plus</v-icon>
             </v-btn>
           </div>
@@ -60,11 +60,29 @@
               <v-list-item :key="index" @click="setSelectedValue(row)">
                 <v-list-item-content>
                   <v-list-item-title>{{ row.name }} </v-list-item-title>
+                  <v-list-item-subtitle>{{ row.domain }} </v-list-item-subtitle>
                   <!-- <v-list-item-title v-text="row.name"></v-list-item-title>
 
                   <v-list-item-title v-text="row.code"></v-list-item-title> -->
                 </v-list-item-content>
-                <v-list-item-icon> </v-list-item-icon>
+                <v-list-item-icon>
+                  <v-btn
+                    @click.stop="openBotForm(row.id)"
+                    text
+                    icon
+                    color="primary"
+                  >
+                    <v-icon>mdi-pencil</v-icon>
+                  </v-btn>
+                  <v-btn
+                    @click.stop="deleteBot(row.id)"
+                    text
+                    icon
+                    color="error"
+                  >
+                    <v-icon>mdi-delete</v-icon>
+                  </v-btn>
+                </v-list-item-icon>
               </v-list-item>
               <v-divider :key="'div' + index" />
             </template>
@@ -78,14 +96,15 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <!-- <store-bots-form ref="StoreCategoriesForm" /> -->
+    <BotForm ref="BotForm" />
   </div>
 </template>
 
 <script>
-// import StoreCategoriesForm from "../forms/StoreCategoriesForm";
+import BotForm from "@/components/bot/forms/BotForm";
+
 export default {
-  // components: { StoreCategoriesForm },
+  components: { BotForm },
   props: {
     value: {},
   },
@@ -150,9 +169,10 @@ export default {
       this.selectedValue = null;
     },
 
-    openCategoriesForm() {
-      this.$refs.StoreCategoriesForm.open();
+    openBotForm(id) {
+      this.$refs.BotForm.open(id);
     },
+    deleteBot() {},
   },
 };
 </script>

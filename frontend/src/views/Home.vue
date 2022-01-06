@@ -11,16 +11,7 @@
           <!--  -->
           <v-row class="d-flex align-center">
             <v-col>
-              <BotSearch />
-              <!-- <v-autocomplete
-                item-text="name"
-                :items="bots"
-                item-value="token"
-                v-model="form.bot_token"
-                auto-select-first
-                clearable
-                cache-items
-              /> -->
+              <BotSearch v-model="form.bot" />
             </v-col>
             <v-col>
               <v-select
@@ -88,7 +79,7 @@ export default {
         { value: "getUpdates", text: "getUpdates" },
       ],
       form: {
-        bot_token: null,
+        bot: {},
         message: "hello world",
       },
       customToolbar: [
@@ -129,7 +120,7 @@ export default {
     getBot() {
       axios
         .get(
-          `https://api.telegram.org/bot${this.form.bot_token}/${this.bot_method}`
+          `https://api.telegram.org/bot${this.form.bot.token}/${this.bot_method}`
         )
         .then((response) => {
           this.bot = response.data;
