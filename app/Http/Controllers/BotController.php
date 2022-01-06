@@ -15,7 +15,7 @@ class BotController extends Controller
      */
     public function index()
     {
-        $bots = Bot::get();
+        $bots = Bot::paginate(30);
         return compact('bots');
         //
     }

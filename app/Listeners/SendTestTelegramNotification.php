@@ -26,6 +26,6 @@ class SendTestTelegramNotification
      */
     public function handle(TelegramNotification $event)
     {
-        $event->user->notify(new TestTelegramNotification($event->message));
+        $event->user->notify(new TestTelegramNotification($event->data));
     }
 }

@@ -8,7 +8,9 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
 
 
+import globalComponents from './plugins/globalComponents'
 
+import vueDebounce from './plugins/vueDebounce'
 
 
 
@@ -24,5 +26,7 @@ new Vue({
   store,
   vuetify,
   http,
+  vueDebounce,
+  globalComponents,
   render: function (h) { return h(App) }
 }).$mount('#app')

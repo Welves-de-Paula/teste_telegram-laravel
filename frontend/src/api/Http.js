@@ -82,7 +82,7 @@ class Http {
 
   processError(error) {
     // console.log(error)
-    store.commit('app/setHttpError', error);
+    // store.commit('app/setHttpError', error);
   }
 }
 

@@ -29,7 +29,7 @@ class MessageController extends Controller
 
         $user =  User::findOrFail(1);
 
-        TelegramNotification::dispatch($user, $request->message);
+        TelegramNotification::dispatch($user, $request->toArray());
         //
     }
 

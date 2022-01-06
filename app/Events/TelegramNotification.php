@@ -19,11 +19,11 @@ class TelegramNotification
      *
      * @return void
      */
-    public function __construct($user, $message)
+    public function __construct($user, $data)
     {
         //
         $this->user = $user;
-        $this->message = $message;
+        $this->data = $data;
     }
 
     /**

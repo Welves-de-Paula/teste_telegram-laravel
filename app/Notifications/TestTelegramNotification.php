@@ -21,11 +21,11 @@ class TestTelegramNotification extends Notification
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($data)
     {
         //
 
-        $this->message = $message;
+        $this->data = $data;
     }
 
     /**
@@ -72,11 +72,10 @@ class TestTelegramNotification extends Notification
     {
 
 
-
         return TelegramMessage::create()
-            // ->token()
+            ->token($this->data['bot_token'])
             ->to(-704549771)
-            ->content($this->message);
+            ->content($this->data['message']);
 
 
         // return TelegramPoll::create()

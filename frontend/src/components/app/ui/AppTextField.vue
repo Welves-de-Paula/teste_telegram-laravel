@@ -1,0 +1,7 @@
+<template>
+  <v-text-field v-bind="$attrs" hide-details="auto" v-on="$listeners" dense />
+</template>
+
+<script>
+export default {};
+</script>
