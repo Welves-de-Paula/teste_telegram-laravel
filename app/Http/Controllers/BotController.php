@@ -70,6 +70,8 @@ class BotController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // trashed
+        $bot = Bot::findOrFail($id);
+        $bot->delete();
     }
 }

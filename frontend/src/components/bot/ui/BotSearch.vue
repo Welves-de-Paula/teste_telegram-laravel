@@ -172,7 +172,11 @@ export default {
     openBotForm(id) {
       this.$refs.BotForm.open(id);
     },
-    deleteBot() {},
+    deleteBot(id) {
+      this.$http.destroy(this.url, id).then((response) => {
+        this.search();
+      });
+    },
   },
 };
 </script>

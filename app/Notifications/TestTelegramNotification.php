@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use NotificationChannels\Telegram\TelegramFile;
 use NotificationChannels\Telegram\TelegramPoll;
 use Illuminate\Notifications\Messages\MailMessage;
+use NotificationChannels\Telegram\Telegram;
 use NotificationChannels\Telegram\TelegramContact;
 use NotificationChannels\Telegram\TelegramMessage;
 use NotificationChannels\Telegram\TelegramLocation;
@@ -75,7 +76,11 @@ class TestTelegramNotification extends Notification
         return TelegramMessage::create()
             ->token($this->data['bot']['token'])
             ->to(-704549771)
-            ->content($this->data['message']);
+            ->content(
+
+
+                $this->data['message']
+            );
 
 
         // return TelegramPoll::create()
