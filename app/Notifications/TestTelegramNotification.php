@@ -68,23 +68,20 @@ class TestTelegramNotification extends Notification
     }
 
 
-
     public function toTelegram($notifiable)
     {
 
-
         return TelegramMessage::create()
             ->token($this->data['bot']['token'])
-            // ->to(-577039297)
+            ->to(-577039297)
             ->content(
-
-
                 $this->data['message']
             );
 
 
         // return TelegramPoll::create()
-        //     ->to(-704549771)
+        //     ->token($this->data['bot']['token'])
+        //     ->to(-577039297)
         //     ->question("Funcionou ?")
         //     ->choices(['Sim', 'Não', 'Deu ruim']);
 
